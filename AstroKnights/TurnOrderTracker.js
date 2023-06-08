@@ -21,7 +21,15 @@ function NextTurn() {
 	var card = turnOrderDrawDeck.pop();
 
 	document.getElementById("TurnOrderTracker").insertAdjacentHTML("beforeend",
-		'<div class="row mt-1 align-items-center">'
+		'<div class="row mt-1 py-2 align-items-center '
+		+ (card == "Boss" ? "bg-danger-subtle" : "")
+		+ (card == "Hero 1" ? "bg-primary-subtle" : "")
+		+ (card == "Hero 2" ? "bg-secondary-subtle" : "")
+		+ (card == "Hero 3" ? "bg-success-subtle" : "")
+		+ (card == "Wild" ? "bg-info-subtle" : "")
+		+ (card == "Hero 1/2" ? "bg-primary-subtle" : "")
+		+ (card == "Hero 3/4" ? "bg-secondary-subtle" : "")
+		+ '">'
 			+ '<div class="col col-3">' + card + '</div>'
 			+ '<div class="col col-2"><button class="btn btn-secondary" type="button" onclick="ReturnToDrawDeck(this,\'' + card + '\',\'Top\')">&uArr;</button></div>'
 			+ '<div class="col col-2"><button class="btn btn-secondary" type="button" onclick="ReturnToDrawDeck(this,\'' + card + '\',\'Bottom\')">&dArr;</button></div>'
