@@ -18,7 +18,7 @@
 					{%- endcase %}
 				{%- endif %}
 			{%- endfor %}
-			<li class="breadcrumb-item active">{{ page.title | default: page.gametitle | default: site.title }}</li>
+			<li class="breadcrumb-item active">{{ page.title | default: page.gametitle | default: "Board Game Helper" }}</li>
 		</ol>
 	</nav>
 </div>
