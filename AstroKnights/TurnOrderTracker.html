@@ -1,0 +1,93 @@
+---
+title: Turn Order Tracker
+---
+
+<div class="container">
+	<h2>Setup</h2>
+	<div>
+		<button class="btn btn-secondary"
+			type="button"
+			id="btn_Setup"
+			data-bs-toggle="modal"
+			data-bs-target="#SetupModal">Setup</button>
+	</div>
+</div>
+
+
+
+
+<div class="container mt-3 d-none"
+	id="TurnOrderSection">
+	<h2>Turn Order</h2>
+	<div class="row">
+		<div class="col">
+			<button class="btn btn-primary"
+				type="button"
+				id="btn_NextTurn"
+				onclick="NextTurn()">Next Turn</button>
+			<button class="btn btn-primary"
+				type="button"
+				id="btn_NewRound"
+				disabled
+				onclick="NewRound()">New Round</button>
+		</div>
+	</div>
+	<div id="TurnOrderTracker">
+	</div>
+</div>
+
+
+
+
+{% comment %} Setup Modal {% endcomment -%}
+<form id="SetupModal_Form"
+	action="javascript:SetupModal_Save()">
+<div class="modal fade"
+	id="SetupModal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">Setup</h1>
+				<button class="btn-close"
+					type="button"
+					data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row gy-2 align-items-center">
+					{% comment %} Number of Heroes {% endcomment -%}
+					<div class="col col-4">Number of Heroes</div>
+					<div class="col col-4">
+						<div class="input-group">
+							<button class="btn btn-outline-secondary"
+								type="button"
+								onclick="form.NumHeroes.stepDown(1)">–</button>
+							<input class="form-control text-center"
+								type="number"
+								name="NumHeroes"
+								value="2" min="1" max="4"
+								required>
+							<button class="btn btn-outline-secondary"
+								type="button"
+								onclick="form.NumHeroes.stepUp(1)">+</button>
+						</div>
+					</div>
+					<div class="w-100"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary"
+					type="button"
+					data-bs-dismiss="modal">Close</button>
+				<button class="btn btn-primary"
+					type="submit">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+
+
+
+<script src="{{ 'TurnOrderTracker.js?v=' | append: site.github.build_revision }}"></script>

@@ -1,20 +1,27 @@
 <section id="title">
 <div class="container mt-2">
-	<h1 class="display-1 text-center">{{ page.title | default:site.title }}</h1>
+	<h1 class="display-1 text-center">{{ page.title | default: page.gametitle | default: site.title }}</h1>
+	{%- if page.title != null %}
+	<h5 class="mt-3 text-center">{{ page.gametitle }}</h5>
+	{%- endif %}
 	<nav class="mt-3">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="/">NightB1ade’s Sites</a></li>
-			{%- if page.title != null %}
+			{%- if page.gametitle != null %}
 			<li class="breadcrumb-item"><a href="{{ '/' | relative_url }}">Board Game Helper</a></li>
 			{%- endif %}
 			{%- assign crumbs = page.url | remove: "/index.html" | split: "/" %}
 			{%- for crumb in crumbs offset: 1 %}
+				{%- capture breadcrumbUrl %}{{ breadcrumbUrl }}{{ crumb }}/{%- endcapture %}
+
 				{%- if forloop.last == false %}
 					{%- case crumb %}
+						{%- when "AstroKnights" %}
+			<li class="breadcrumb-item"><a href="{{ breadcrumbUrl | relative_url }}">Astro Knights</a></li>
 					{%- endcase %}
 				{%- endif %}
 			{%- endfor %}
-			<li class="breadcrumb-item active">{{ page.title | default: "Board Game Helper" }}</li>
+			<li class="breadcrumb-item active">{{ page.title | default: page.gametitle | default: site.title }}</li>
 		</ol>
 	</nav>
 </div>

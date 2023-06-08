@@ -5,3 +5,8 @@ defaults:
     -
         values:
             layout: default
+    -
+        scope:
+            path: AstroKnights
+        values:
+            gametitle: Astro Knights
