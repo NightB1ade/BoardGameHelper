@@ -71,7 +71,7 @@ function ImportData() {
 
 	form.reset();
 
-	if (localStorage != null) {
+	if (localStorage.getItem("Expansions") != null) {
 		var expansions = JSON.parse(localStorage.Expansions);
 		if (Object.keys(expansions).length > 0) {
 			Object.keys(expansions).forEach((item, i) => {
