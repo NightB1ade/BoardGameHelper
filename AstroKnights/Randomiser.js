@@ -64,7 +64,6 @@ function Knights_Randomise() {
 
 function ImportData() {
 	var form = document.getElementById("ExpansionsModal_Form");
-	var expansions = JSON.parse(localStorage.Expansions);
 
 	currentBosses = [];
 	currentHomeworlds = [];
@@ -72,10 +71,15 @@ function ImportData() {
 
 	form.reset();
 
-	if (Object.keys(expansions).length > 0) {
-		Object.keys(expansions).forEach((item, i) => {
-			form[item].checked = true;
-		});
+	if (localStorage != null) {
+		var expansions = JSON.parse(localStorage.Expansions);
+		if (Object.keys(expansions).length > 0) {
+			Object.keys(expansions).forEach((item, i) => {
+				form[item].checked = true;
+			});
+		} else {
+			form.IsExpansion_0.checked = true;
+		}
 	} else {
 		form.IsExpansion_0.checked = true;
 	}
