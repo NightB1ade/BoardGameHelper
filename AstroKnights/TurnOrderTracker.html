@@ -2,21 +2,7 @@
 title: Turn Order Tracker
 ---
 
-<div class="container">
-	<h2>Setup</h2>
-	<div>
-		<button class="btn btn-secondary"
-			type="button"
-			id="btn_Setup"
-			data-bs-toggle="modal"
-			data-bs-target="#SetupModal">Setup</button>
-	</div>
-</div>
-
-
-
-
-<div class="container mt-3 d-none"
+<div class="container d-none"
 	id="TurnOrderSection">
 	<h2>Turn Order</h2>
 	<div class="row">
@@ -32,7 +18,25 @@ title: Turn Order Tracker
 				onclick="NewRound()">New Round</button>
 		</div>
 	</div>
-	<div id="TurnOrderTracker">
+	<div class="mt-2"
+		id="TurnOrderTracker">
+	</div>
+</div>
+
+
+
+
+<div class="container mt-3">
+	<h2>Setup</h2>
+	<div>
+		<button class="btn btn-secondary"
+			type="button"
+			id="btn_Setup"
+			data-bs-toggle="modal"
+			data-bs-target="#SetupModal">Setup</button>
+	</div>
+	<div class="mt-1"
+		id="SetupSettings">
 	</div>
 </div>
 
@@ -56,8 +60,8 @@ title: Turn Order Tracker
 			<div class="modal-body">
 				<div class="row gy-2 align-items-center">
 					{% comment %} Number of Heroes {% endcomment -%}
-					<div class="col col-4">Number of Heroes</div>
-					<div class="col col-4">
+					<div class="col col-6 col-sm-4">Number of Heroes</div>
+					<div class="col col-6 col-sm-4">
 						<div class="input-group">
 							<button class="btn btn-outline-secondary"
 								type="button"
@@ -73,6 +77,12 @@ title: Turn Order Tracker
 						</div>
 					</div>
 					<div class="w-100"></div>
+					<div class="col col-6 col-sm-4">Number Boss Cards</div>
+					<div class="col col-6 col-sm-4 text-center">
+						<input class="form-check-input"
+							type="checkbox"
+							name="IsBossCards_Numbered">
+					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
