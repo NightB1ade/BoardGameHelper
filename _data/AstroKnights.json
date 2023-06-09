@@ -1,0 +1,73 @@
+[{
+		"name": "Base"
+		, "knights": [{
+				"name": "Christina"
+			}
+			, {
+				"name": "Gavriil"
+			}
+			, {
+				"name": "Nasma"
+			}
+			, {
+				"name": "Silas"
+			}
+			, {
+				"name": "Toli"
+			}
+			, {
+				"name": "Z.A.K."
+			}
+		]
+		, "homeworlds": [{
+				"name": "New Atlantis"
+			}
+			, {
+				"name": "Nisarin"
+			}
+			, {
+				"name": "Qaris"
+			}
+			, {
+				"name": "Ylong"
+			}
+		]
+		, "bosses": [{
+				"name": "Architect 0-815"
+			}
+			, {
+				"name": "Continnua"
+			}
+			, {
+				"name": "Furion"
+			}
+			, {
+				"name": "Lunaris"
+			}
+		]
+	}
+	, {
+		"name": "The Orion System"
+		, "knights": [{
+				"name": "Alexios"
+			}
+			, {
+				"name": "Deleth"
+			}
+		]
+		, "homeworlds": [{
+			"name": "Orion III"
+		}]
+		, "bosses": [{
+			"name": "Fission Parasite"
+		}]
+	}
+	, {
+		"name": "Promos"
+		, "knights": []
+		, "homeworlds": [{
+			"name": "Silarix"
+		}]
+		, "bosses": []
+	}
+]

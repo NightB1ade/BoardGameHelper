@@ -1,0 +1,87 @@
+{
+	"type": "array"
+	, "title": "Astro Knights"
+	, "format": "tabs"
+	, "uniqueItems": true
+	, "items": {
+		"type": "object"
+		, "title": "Expansion"
+		, "headerTemplate": "{{ self.name }}"
+		, "required": [
+			"name"
+			, "knights"
+			, "homeworlds"
+			, "bosses"
+		]
+		, "properties": {
+			"name": {
+				"type": "string"
+				, "title": "Name"
+				, "minLength": 1
+			}
+			, "knights": {
+				"type": "array"
+				, "title": "Knights"
+				, "format": "table"
+				, "uniqueItems": true
+				, "required": [
+					"name"
+				]
+				, "items": {
+					"type": "object"
+					, "title": "Knight"
+					, "headerTemplate": "{{ self.name }}"
+					, "properties": {
+						"name": {
+							"type": "string"
+							, "title": "Name"
+							, "minLength": 1
+						}
+					}
+				}
+			}
+			, "homeworlds": {
+				"type": "array"
+				, "title": "Homeworlds"
+				, "format": "table"
+				, "uniqueItems": true
+				, "required": [
+					"name"
+				]
+				, "items": {
+					"type": "object"
+					, "title": "Homeworld"
+					, "headerTemplate": "{{ self.name }}"
+					, "properties": {
+						"name": {
+							"type": "string"
+							, "title": "Name"
+							, "minLength": 1
+						}
+					}
+				}
+			}
+			, "bosses": {
+				"type": "array"
+				, "title": "Bosses"
+				, "format": "table"
+				, "uniqueItems": true
+				, "required": [
+					"name"
+				]
+				, "items": {
+					"type": "object"
+					, "title": "Boss"
+					, "headerTemplate": "{{ self.name }}"
+					, "properties": {
+						"name": {
+							"type": "string"
+							, "title": "Name"
+							, "minLength": 1
+						}
+					}
+				}
+			}
+		}
+	}
+}

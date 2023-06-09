@@ -1,0 +1,133 @@
+---
+title: Randomiser
+onLoad: OnDocumentLoad()
+---
+
+<form id="Knights_Randomise_Form"
+	action="javascript:Knights_Randomise()">
+<div class="container">
+	<h2>Knights</h2>
+	<div class="row">
+		<div class="col col-6 col-sm-4 col-md-3 col-lg-2">
+			<div class="input-group">
+				<button class="btn btn-outline-secondary"
+					type="button"
+					onclick="form.NumKnights.stepDown(1)">–</button>
+				<input class="form-control text-center"
+					type="number"
+					name="NumKnights"
+					value="2" min="1" max="4"
+					required>
+				<button class="btn btn-outline-secondary"
+					type="button"
+					onclick="form.NumKnights.stepUp(1)">+</button>
+			</div>
+		</div>
+		<div class="col">
+			<button class="btn btn-secondary"
+				type="submit">Randomise</button>
+		</div>
+	</div>
+	<div class="mt-3">
+		<ul class="list-group"
+			id="Knights">
+		</ul>
+	</div>
+</div>
+</form>
+
+
+
+
+<div class="container mt-3">
+	<h2>Homeworld</h2>
+	<div>
+		<button class="btn btn-secondary"
+			type="button"
+			onclick="Homeworld_Randomise()">Randomise</button>
+	</div>
+	<div class="mt-3">
+		<ul class="list-group"
+			id="Homeworld">
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="container mt-3">
+	<h2>Boss</h2>
+	<div>
+		<button class="btn btn-secondary"
+			type="button"
+			onclick="Boss_Randomise()">Randomise</button>
+	</div>
+	<div class="mt-3">
+		<ul class="list-group"
+			id="Boss">
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div class="container mt-3">
+	<h2>Setup</h2>
+	<div>
+		<button class="btn btn-secondary"
+			type="button"
+			data-bs-toggle="modal"
+			data-bs-target="#ExpansionsModal"
+			onclick="ExpansionsModal_Open()">Expansions</button>
+	</div>
+</div>
+
+
+
+
+{% comment %} Expansions Modal {% endcomment -%}
+<form id="ExpansionsModal_Form"
+	action="javascript:ExpansionsModal_Save()">
+<div class="modal fade"
+	id="ExpansionsModal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5">Expansions Setup</h1>
+				<button class="btn-close"
+					type="button"
+					data-bs-dismiss="modal"></button>
+			</div>
+			<div class="modal-body">
+				<div class="row gy-2 align-items-center">
+					{% for entry in site.data.AstroKnights -%}
+					<div class="col col-6 col-sm-4">{{ entry.name }}</div>
+					<div class="col col-6 col-sm-4 text-center">
+						<input class="form-check-input"
+							type="checkbox"
+							name="IsExpansion_{{ forloop.index0 }}"
+							value="{{ forloop.index0 }}">
+					</div>
+					<div class="w-100"></div>
+					{%- endfor %}
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary"
+					type="button"
+					data-bs-dismiss="modal">Close</button>
+				<button class="btn btn-primary"
+					type="submit">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+
+
+
+
+<script src="{{ 'Randomiser.js?v=' | append: site.github.build_revision }}"></script>
