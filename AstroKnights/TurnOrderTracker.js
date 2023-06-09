@@ -22,7 +22,7 @@ function NextTurn() {
 
 	document.getElementById("TurnOrderTracker").insertAdjacentHTML("beforeend",
 		'<div class="row mt-1 py-2 align-items-center '
-		+ (["Boss","Boss 1","Boss 2"].includes(card) ? "bg-danger-subtle" : "")
+		+ (["Boss","Boss 1","Boss 2","Temporal"].includes(card) ? "bg-danger-subtle" : "")
 		+ (["Knight 1","Knight 1/2"].includes(card) ? "bg-primary-subtle" : "")
 		+ (["Knight 2","Knight 3/4"].includes(card) ? "bg-secondary-subtle" : "")
 		+ (card == "Knight 3" ? "bg-success-subtle" : "")
@@ -83,6 +83,10 @@ function SetupModal_Save() {
 		turnOrderDeck = ["Knight 1","Knight 2","Knight 3","Wild"];
 	} else if (numKnights == 4) {
 		turnOrderDeck = ["Knight 1/2","Knight 1/2","Knight 3/4","Knight 3/4"];
+	}
+
+	if (form.IsBossCard_AddContinnua.checked) {
+		turnOrderDeck.push("Temporal")
 	}
 
 	if (form.IsBossCards_Numbered.checked) {
