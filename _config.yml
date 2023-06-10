@@ -15,3 +15,8 @@ defaults:
             path: AstroKnights
         values:
             gametitle: Astro Knights
+    -
+        scope:
+            path: Kanagawa
+        values:
+            gametitle: Kanagawa
