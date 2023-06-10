@@ -20,3 +20,8 @@ defaults:
             path: Kanagawa
         values:
             gametitle: Kanagawa
+    -
+        scope:
+            path: Spyfall
+        values:
+            gametitle: Spyfall
