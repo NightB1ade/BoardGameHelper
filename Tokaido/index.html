@@ -1,0 +1,129 @@
+---
+---
+
+<div class="container">
+	<h1>Setup</h1>
+	<h2>Characters</h2>
+	<div class="btn-group">
+		{% for expansion in site.data.Tokaido -%}
+		<input class="btn-check CharacterFilter"
+			type="checkbox"
+			id="cbx_Characters_{{ expansion.code }}"
+			onchange="CharacterFilter('{{ expansion.code }}')"
+			checked>
+		<label class="btn btn-outline-primary"
+			for="cbx_Characters_{{ expansion.code }}">{{ expansion.name }}</label>
+		{%- endfor %}
+	</div>
+	<table class="table table-dark table-hover w-auto"
+		id="CharacterTable">
+		<thead>
+			<tr>
+				<th>Character</th>
+				<th>Expansion</th>
+				<th>Power</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%- assign characters = "" | split: "," -%}
+			{%- for expansion in site.data.Tokaido -%}
+				{%- for character in expansion.characters -%}
+					{%- assign characters = characters | push: character | sort_natural: "name" -%}
+				{%- endfor %}
+			{%- endfor %}
+			{%- for character in characters -%}
+				{%- for expansion in site.data.Tokaido -%}
+					{%- for characterSearch in expansion.characters -%}
+						{%- if character.name == characterSearch.name %}
+			<tr class="Expansion_{{ expansion.code }}">
+				<td>{{ character.name }}</td>
+				<td>{{ expansion.name }}</td>
+				<td>{{ character.power }}</td>
+			</tr>
+						{%- endif -%}
+					{%- endfor -%}
+				{%- endfor -%}
+			{%- endfor %}
+		</tbody>
+	</table>
+
+
+	<h1>In-Game</h1>
+	<h2>Calligraphies</h2>
+	<table class="table table-dark table-striped table-hover w-auto">
+		<thead>
+			<tr>
+				<th>Calligraphy</th>
+				<th>Ability</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Contemplation</td>
+				<td>3 points per complete Panorama, 1 point per Cherry Tree</td>
+			</tr>
+			<tr>
+				<td>Fasting</td>
+				<td>3 points per uneaten Meal</td>
+			</tr>
+			<tr>
+				<td>Fasting</td>
+				<td>3 points per uneaten Meal</td>
+			</tr>
+			<tr>
+				<td>Nostalgia</td>
+				<td>2 points per Legendary Object, 1 point per Souvenir</td>
+			</tr>
+			<tr>
+				<td>Patience</td>
+				<td>6 points if last to arrive, 4 points if second-last, 2 points in all other cases</td>
+			</tr>
+			<tr>
+				<td>Perfection</td>
+				<td>2 points per Accomlishment, 1 point per Calligraphy card</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h2>Amulets</h2>
+	<table class="table table-dark table-striped table-hover w-auto">
+		<thead>
+			<tr>
+				<th>Amulet</th>
+				<th>Ability</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Devotion</td>
+				<td>Give the Temple the coins spent on acquiring any kind of purchasable card</td>
+			</tr>
+			<tr>
+				<td>Fortune</td>
+				<td>Roll the fortune die, before moving, as if in a Gaming Room</td>
+			</tr>
+			<tr>
+				<td>Friendship</td>
+				<td>Stop on a single space that is occupied by another Traveler as if it was a double space</td>
+			</tr>
+			<tr>
+				<td>Health</td>
+				<td>Select both options for the space you land on (in the order of your choice)</td>
+			</tr>
+			<tr>
+				<td>Hospitality</td>
+				<td>Take your Meal card for free when stopping at an Inn</td>
+			</tr>
+			<tr>
+				<td>Vitality</td>
+				<td>Play again while in the lead position</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+
+<script src="{{ 'index.js?v=' | append: site.github.build_revision }}"></script>

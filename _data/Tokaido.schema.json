@@ -1,0 +1,55 @@
+{
+	"type": "array"
+	, "title": "Tokaido"
+	, "format": "tabs"
+	, "uniqueItems": true
+	, "items": {
+		"type": "object"
+		, "title": "Expansion"
+		, "headerTemplate": "{{ self.name }}"
+		, "required": [
+			"code"
+			, "name"
+			, "characters"
+		]
+		, "properties": {
+			"code": {
+				"type": "string"
+				, "title": "Code"
+				, "minLength": 1
+			}
+			, "name": {
+				"type": "string"
+				, "title": "Name"
+				, "minLength": 1
+			}
+			, "characters": {
+				"type": "array"
+				, "title": "Characters"
+				, "format": "table"
+				, "uniqueItems": true
+				, "required": [
+					"name"
+					,"power"
+				]
+				, "items": {
+					"type": "object"
+					, "title": "Character"
+					, "headerTemplate": "{{ self.name }}"
+					, "properties": {
+						"name": {
+							"type": "string"
+							, "title": "Name"
+							, "minLength": 1
+						}
+						, "power": {
+							"type": "string"
+							, "title": "Power"
+							, "minLength": 1
+						}
+					}
+				}
+			}
+		}
+	}
+}

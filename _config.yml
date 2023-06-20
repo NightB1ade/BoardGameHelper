@@ -25,3 +25,8 @@ defaults:
             path: Spyfall
         values:
             gametitle: Spyfall
+    -
+        scope:
+            path: Tokaido
+        values:
+            gametitle: Tokaido
